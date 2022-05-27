@@ -1,0 +1,104 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>finalizar</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+
+
+        <ion-card-content style="padding:30px">
+            <ion-card-subtitle>Forma de pago</ion-card-subtitle>
+            <ion-item>
+                <ion-label>Tipo de Comprobante </ion-label>
+                <ion-select [(ngModel)]="binding" (ionChange)="onChange($event)">
+                    <ion-select-option *ngFor="let item of comprobantes" [value]="item.com_id">
+                        {{item.com_nombre}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+
+
+
+
+            <ion-item>
+                <ion-label>Pago en</ion-label>
+                <ion-select [(ngModel)]="bindingPago" (ionChange)="onChangePago($event)">
+                    <ion-select-option *ngFor="let item of medioPago" [value]="item.fp_Id">
+                        {{item.fp_descripcion}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-card-content>
+
+
+
+
+    </ion-card>
+
+    <ion-card>
+        <ion-card-content>
+            <ion-card-subtitle>Resumen del pedido</ion-card-subtitle>
+
+
+            <ion-list *ngFor="let item of productos">
+                <ion-item>
+
+                    <ion-label>
+
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col size="12">
+                                    <!-- name -->
+                                    {{item.producto}}
+                                </ion-col>
+                            </ion-row>
+
+                            <ion-row>
+                                <ion-col size="2">
+                                    <!-- icon -->
+                                    <h3 style=" color: red; font-weight: bold;" color="primary">{{item.cantidad}} X {{item.precioUnit}} = {{item.totalGeneral}}</h3>
+                                </ion-col>
+                                <ion-col size="10">
+                                    <!-- time -->
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>
+
+
+<ion-footer>
+    <ion-card>
+
+
+
+
+
+
+    </ion-card>
+    <!--   <ion-button expand="block" (click)="openModal()">Show Sheet Modal</ion-button> -->
+    <ion-toolbar>
+        <ion-item>
+            <ion-label color="danger" class="ion-margin"> <strong>Total: GS {{totalGeneral}}</strong> </ion-label>
+        </ion-item>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col size="1"></ion-col>
+                <ion-col class="ion-text-center">
+                    <ion-button type="submit" color="danger" (click)="sendPedido()" routerLink="/success" class="botoncito">Finalizar</ion-button>
+                    <ion-button color="" class="botoncito" routerLink="/home">Volver</ion-button>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>

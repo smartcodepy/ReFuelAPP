@@ -1,0 +1,41 @@
+<ion-app>
+    <ion-split-pane #ionSplitPane contentId="main-content">
+        <ion-menu *ngIf="utl" contentId="main-content">
+            <ion-content>
+                <ion-list id="inbox-list">
+                    <!-- <ion-list-header>Bienvenido!</ion-list-header> -->
+                    <!--  <ion-note>1.0.0</ion-note> -->
+
+                    <h3> {{this.usuario.usu_nombre}}</h3>
+
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                        <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+                            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                            <ion-label>{{ p.title }}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle auto-hide="false" (click)="cerrar()">
+                        <ion-item routerDirection="root" [routerLink]="'/login'" lines="none" detail="false" routerLinkActive="selected">
+                            <ion-icon slot="start" [ios]="'log-out-outline'" [md]="'log-out-outline'"></ion-icon>
+                            <ion-label>cerrar sesion</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-split-pane>
+
+    <ion-fab *ngIf="this.env" [routerLink]="['/carrito']" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="danger" class="btnCrear">
+            <ion-icon name="cart"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-app>
+
+<!-- 
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+ -->

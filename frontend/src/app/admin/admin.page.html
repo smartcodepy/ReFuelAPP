@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <!-- <ion-back-button text="Back" icon="add"></ion-back-button> -->
+            <ion-back-button (click)="onClick()" text="Atrás" defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Panel de Administracion</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-item button [routerLink]="['/admin/usuarios']">
+        <ion-thumbnail slot="start">
+            <img src="../../assets/icon/man.png">
+        </ion-thumbnail>
+        <ion-label>
+            <h2>Usuarios</h2>
+            <p>Gestionar Usuarios</p>
+        </ion-label>
+
+    </ion-item>
+
+    <ion-item button [routerLink]="['/admin/productos']">
+        <ion-thumbnail slot="start">
+            <img src="https://cdn-icons-png.flaticon.com/512/1524/1524855.png">
+        </ion-thumbnail>
+        <ion-label>
+            <h2>Productos</h2>
+            <p>Gestionar Productos</p>
+        </ion-label>
+
+    </ion-item>
+
+    <ion-item button [routerLink]="['/admin/categorias']">
+        <ion-thumbnail slot="start">
+            <img src="https://cdn-icons-png.flaticon.com/512/7183/7183999.png">
+        </ion-thumbnail>
+        <ion-label>
+            <h2>Categorías</h2>
+            <p>Gestionar Categorías</p>
+        </ion-label>
+    </ion-item>
+
+    <ion-item button [routerLink]="['/admin/pedidos-pendientes']">
+        <ion-thumbnail slot="start">
+            <img src="../../assets/icon/order.png">
+        </ion-thumbnail>
+        <ion-label>
+            <h2>Pedidos Pendientes</h2>
+            <p>Gestionar Pedidos Pendientes</p>
+        </ion-label>
+    </ion-item>
+
+    <ion-item button [routerLink]="['/admin/pagos-list']">
+        <ion-thumbnail slot="start">
+            <img src="../../assets/icon/pago-en-linea.png">
+        </ion-thumbnail>
+        <ion-label>
+            <h2>Formas de Pago</h2>
+            <p>Gestionar Formas de</p>
+        </ion-label>
+    </ion-item>
+
+</ion-content>

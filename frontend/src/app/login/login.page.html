@@ -1,0 +1,67 @@
+<ion-app>
+    <ion-content>
+        <ion-card>
+            <ion-card-content class="ion-text-center ion-margin ">
+                <img src="../../assets/icon/ref.png" alt="">
+            </ion-card-content>
+
+
+
+        </ion-card>
+
+        <ion-grid>
+
+
+
+            <ion-row>
+                <ion-col size="1"></ion-col>
+                <ion-col>
+                    <ion-item>
+                        <ion-label class="label" position="floating">Usuario</ion-label>
+                        <ion-input name="email" [(ngModel)]="usuario.email" type="email" placeholder="example@mail.com"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="1"></ion-col>
+                <ion-col>
+                    <ion-item>
+                        <ion-label position="floating">Contraseña</ion-label>
+                        <ion-input name="pass" type="password" [(ngModel)]="this.usuario.password" placeholder="Contraseña"></ion-input>
+                    </ion-item>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="1"></ion-col>
+                <ion-col>
+                    <ion-button color="danger" class="botoncito" expand="block" (click)="onClick()">Iniciar Sesión</ion-button>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col size="1"></ion-col>
+                <ion-col>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+            </ion-row>
+
+        </ion-grid>
+
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar class="ion-text-center">
+            <div class="ion-text-left ion-margin">
+                <ion-label>Aun no tienes una cuenta? <strong [routerLink]="['/registro-usuario']">Regístrate!</strong></ion-label>
+            </div>
+            <div class="ion-text-left ion-margin">
+                <ion-label color="danger" [routerLink]="['/recuperar']">Recuperar contraseña!</ion-label>
+            </div>
+        </ion-toolbar>
+    </ion-footer>
+
+</ion-app>

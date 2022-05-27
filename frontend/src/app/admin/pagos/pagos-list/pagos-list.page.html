@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar color="danger">
+        <ion-buttons slot="start">
+            <ion-back-button text="Atrás" (click)="onBack()" defaultHref="/admin"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Medios de pago</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+    <ion-list *ngFor="let usuario of usuarios; let index = i">
+        <ion-item-sliding #slidingItem>
+            <ion-item button class="item-label item ios in-list ion-focusable hydrated" [routerLink]="['/admin/pagos-edit/'  + usuario.fp_Id]">
+                <ion-avatar slot="start">
+                    <img src="../../..//../assets/icon/pago-en-linea.png" />
+                </ion-avatar>
+                <ion-label>
+                    <h2>{{usuario.fp_descripcion}}</h2>
+                </ion-label>
+            </ion-item>
+
+            <ion-item-options side="end">
+                <ion-item-option (click)="onClick(usuario)" color="danger">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-item-option>
+
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+
+    <!--para agregar nuevos usuarios-->
+
+    <ion-fab [routerLink]="['/admin/pagos-create']" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="danger" class="btnCrear">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

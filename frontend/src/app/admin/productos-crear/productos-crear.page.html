@@ -1,0 +1,72 @@
+<ion-content>
+    <form [formGroup]="registroUsuarioForm" (ngSubmit)="registrar()">
+
+        <ion-card>
+            <ion-card-content class="ion-text-center">
+                <img src="../../assets/icon/ref.png" alt="">
+
+            </ion-card-content>
+            <ion-card-header>
+                <ion-title><strong>Registro de productos</strong></ion-title>
+            </ion-card-header>
+        </ion-card>
+
+        <ion-content>
+            <ion-title class="ion-margin"></ion-title>
+        </ion-content>
+        <ion-card-content>
+
+            <ion-item>
+                <ion-label position="floating">Nombre: </ion-label>
+                <ion-input required type="email" placeholder="ejemplo@gmail.com" formControlName="pro_nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Descripcion:</ion-label>
+                <ion-input required required="true" type="text" formControlName="pro_descripcion"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Precio:</ion-label>
+                <ion-input required type="text" formControlName="pro_precio"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Iva: </ion-label>
+                <ion-input required formControlName="pro_iva"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Imagen (URL): </ion-label>
+                <ion-input type="text" placeholder="URL" formControlName="image"></ion-input>
+            </ion-item>
+
+
+
+            <ion-item>
+                <ion-label>Categoria</ion-label>
+                <ion-select name="select" [(ngModel)]="binding" [ngModelOptions]="{standalone: true}" (ionChange)="onChange($event)">
+                    <ion-select-option *ngFor="let item of categorias" [value]="item.cat_id">
+                        {{item.cat_nombre}}
+                    </ion-select-option>
+                </ion-select>
+            </ion-item>
+
+
+
+        </ion-card-content>
+        <!--  <ion-button class="btnguardar" type="submit"  [disabled]="!registroUsuarioForm.valid" ><ion-icon name="checkmark"></ion-icon> </ion-button> -->
+        <ion-grid>
+            <ion-row>
+                <ion-col size="1"></ion-col>
+                <ion-col class="ion-text-center">
+                    <ion-button type="submit" color="danger" class="botoncito">Finalizar</ion-button>
+                    <ion-button color="" class="botoncito" routerLink="/home">Cancelar</ion-button>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <!--  <ion-button class="btncancelar"> <ion-icon name="close" ></ion-icon> </ion-button> -->
+
+    </form>
+</ion-content>

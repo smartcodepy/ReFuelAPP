@@ -1,0 +1,74 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>registro-usuario</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+    <form [formGroup]="registroUsuarioForm" (ngSubmit)="registrar()">
+
+        <ion-card>
+            <ion-card-content class="ion-text-center">
+                <img src="../../assets/icon/ref.png" alt="">
+
+            </ion-card-content>
+            <ion-card-header>
+                <ion-title><strong>Registro de usuario</strong></ion-title>
+            </ion-card-header>
+        </ion-card>
+
+        <ion-content>
+            <ion-title class="ion-margin"></ion-title>
+        </ion-content>
+        <ion-card-content>
+
+
+            <ion-item>
+                <ion-label position="floating">Nombre:</ion-label>
+                <ion-input required required="true" type="text" formControlName="nombre"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Apellido:</ion-label>
+                <ion-input required type="text" formControlName="apellido"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Nº Documento: </ion-label>
+                <ion-input required formControlName="documento"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Nº Celular: </ion-label>
+                <ion-input required type="tel" placeholder="09XX -XXX-XXX" formControlName="telefono"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Email: </ion-label>
+                <ion-input required type="email" placeholder="ejemplo@gmail.com" formControlName="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Contraseña: </ion-label>
+                <ion-input required type="password" placeholder="" formControlName="password"></ion-input>
+            </ion-item>
+
+
+
+        </ion-card-content>
+        <!--  <ion-button class="btnguardar" type="submit"  [disabled]="!registroUsuarioForm.valid" ><ion-icon name="checkmark"></ion-icon> </ion-button> -->
+        <ion-grid>
+            <ion-row>
+                <ion-col size="1"></ion-col>
+                <ion-col class="ion-text-center">
+                    <ion-button type="submit" color="danger" class="botoncito">Finalizar</ion-button>
+                    <ion-button color="" class="botoncito" routerLink="/login">Cancelar</ion-button>
+                </ion-col>
+                <ion-col size="1"></ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <!--  <ion-button class="btncancelar"> <ion-icon name="close" ></ion-icon> </ion-button> -->
+
+    </form>
+</ion-content>

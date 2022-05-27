@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="danger">
+        <ion-buttons slot="start">
+            <ion-back-button text="Atrás" defaultHref="/admin/usuarios"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Editar Usuario</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form [formGroup]="editarUsuarioForm" (ngSubmit)="editarUsuario()">
+        <ion-card-content>
+            <ion-item>
+                <ion-label position="floating">Nombre y Apellido</ion-label>
+                <ion-input type="text" value="usuario.usu_nombre" formControlName="usu_nombre"></ion-input>
+            </ion-item>
+            <ion-item lines="full">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" value="usuario.usu_email" formControlName="usu_email"></ion-input>
+            </ion-item>
+
+            <ion-item lines="">
+                <ion-label position="floating">Telefono</ion-label>
+                <ion-input type="text" value="usuario.usu_telefono" formControlName="usu_telefono"></ion-input>
+            </ion-item>
+            <ion-item lines="full">
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input type="text" value="usuario.usu_password" formControlName="usu_password"></ion-input>
+            </ion-item>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="block" color="danger" type="submit">Guardar!</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+    </form>
+</ion-content>
