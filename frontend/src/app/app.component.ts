@@ -24,7 +24,7 @@ export class AppComponent implements OnInit  {
     { title: 'Inicio', url: '/home', icon: 'home',rol:"1" },
     { title: 'Pedidos', url: '/pedidos', icon: 'newspaper' ,rol:"1" },
     { title: 'Mi cuenta', url: '/miCuenta', icon: 'person' ,rol:"1"},
-    { title: 'Admin', url: '/admin', icon: 'people',rol:"0" },
+   
     
     
    /*  { title: 'Spam', url: '/folder/Spam', icon: 'warning' }, */
@@ -32,6 +32,7 @@ export class AppComponent implements OnInit  {
   @ViewChild('ionSplitPane') ionSplitPane!: IonSplitPane;
   usuario;
   utl;
+  rol;
   constructor(private CarritoService:CarritoService,
     private userService:UsuarioService,
     private pedidoService:PedidoService,
@@ -41,7 +42,9 @@ export class AppComponent implements OnInit  {
       this.utl=window.location.href.includes("/login")?false:true;
 
       this.usuario=LocalStorageService.getJson("datosUsuario");
-      console.log(this.usuario)
+    this.userService.admin.subscribe(x=>{
+      this.rol=x;
+    })
       
 
   }

@@ -255,6 +255,43 @@ const getAll = async() => {
     return result;
 }
 
+const getAllbyUser = async(id) => {
+    let result = await sequelize.query(
+        `SELECT t.ped_fecha,t.ped_id, 
+        ARRAY_TO_JSON ( ARRAY_AGG ( ROW_TO_JSON(t) ) ) as detalles
+        FROM 
+        (
+            SELECT 
+            p.ped_id_cliente,
+            p.ped_fecha,
+            p.ped_id,
+            p.ped_total_general,
+            dt.det_id,
+            pro.pro_descripcion,
+            pro.pro_nombre,
+            pro.image,
+            dt.det_cantidad,
+            dt.det_observacion,
+            dt.det_estado                 					
+            FROM pedido AS p
+            INNER JOIN detalle_pedido AS dt 
+            ON p.ped_id = dt.det_id_pedido
+            INNER JOIN producto AS pro ON 
+            pro.pro_id = dt.det_id_producto
+        ) AS t 
+        WHERE t.ped_id_cliente =:id
+        GROUP BY t.ped_fecha,t.ped_id;
+        `, {
+            replacements: {
+                id: id
+            }
+        });
+    result = (result && result[0]) ? result[0] : [];
+    console.log(result);
+    return result;
+}
+
+
 
 const getPedidoUsuarios = async(id) => {
     let result = await sequelize.query(
@@ -349,5 +386,6 @@ module.exports = {
     getPedidoPendiente,
     getPedidoUsuarios,
     updateEstadoDetalle,
-    create2
+    create2,
+    getAllbyUser
 };

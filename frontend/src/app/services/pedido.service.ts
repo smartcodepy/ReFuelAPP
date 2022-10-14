@@ -178,9 +178,9 @@ console.log(this.detalles)
     if(this.detalles&&this.detalles[0]){
       let Totalpedido ={
 
-        "TotalPedido":this.getTotalPedido(),
+        "TotalPedido":this.getTotalPedido() | 0,
 
-        "CantidadTotal":this.getCantidadTotal()
+        "CantidadTotal":this.getCantidadTotal() | 0
 
     }
 
@@ -231,9 +231,13 @@ console.log(this.detalles)
       detalles:JSON.parse(localStorage.getItem("pedido")),
       datosCabecera
     }
+
+    console.log(sedDatos)
+
     this.add(sedDatos).subscribe(x=>{
       if(x.result && x.success)
       {
+        console.log(x)
         localStorage.removeItem("cabecera")
         localStorage.removeItem("Totalpedido")
         localStorage.removeItem("pedido")

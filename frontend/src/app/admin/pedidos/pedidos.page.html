@@ -22,6 +22,12 @@
 
                 <ion-grid>
                     <ion-row>
+                        <ion-col size="12" style="white-space:normal">
+
+                            <!-- icon -->
+                            <h6>Fecha: {{item.ped_fecha}}</h6>
+    
+                        </ion-col>
                         <ion-col size="12">
                             <!-- name -->
                             {{item.pro_nombre}}
@@ -31,9 +37,13 @@
                         <ion-col size="12" style="white-space:normal">
 
                             <!-- icon -->
-                            <h6>Cantidad en Litros {{item.det_cantidad}}</h6>
+                            <h6>Cantidad: {{item.det_cantidad}}</h6>
+    
                         </ion-col>
-
+                        <ion-col size="12" style="white-space:normal">
+                        <h6>Total: {{item.ped_total_general}} G$</h6>
+        
+                    </ion-col>
                     </ion-row>
                     <ion-row>
                         <ion-col size="2">

@@ -42,7 +42,7 @@ export class HomePage implements OnInit {
     this.productoService.getFilter($event.detail.value).subscribe(x=>{
       this.productos=x.result;
     })
-    else if(this.productos.length===0){
+    else {
       this.listarPorductos();
     }
   }

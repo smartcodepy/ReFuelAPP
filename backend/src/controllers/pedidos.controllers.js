@@ -37,7 +37,7 @@ const getPedidoFilter = async(req, res) => {
 
 const getPedidoUsuario = async(req, res) => {
     try {
-        let result = await service.getPedidoUsuarios(req.params.id);
+        let result = await service.getAllbyUser(req.params.id);
         res.status(200).send({
             success: true,
             result

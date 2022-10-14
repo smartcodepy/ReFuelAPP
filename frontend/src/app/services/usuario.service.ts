@@ -1,15 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../models/Usuario';
 import {LocalStorageService} from '../services/localStorage.service'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
   
+  admin = new EventEmitter();
+
   endPoint = environment.url;
   headers ={"x-token":this.LocalStorageService.getString(environment.tokenKey)};
   constructor(public http: HttpClient ,private LocalStorageService:LocalStorageService ) { }

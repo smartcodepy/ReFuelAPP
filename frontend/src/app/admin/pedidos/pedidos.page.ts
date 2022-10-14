@@ -11,12 +11,19 @@ export class PedidosPage implements OnInit {
   constructor(private service:PedidoService) { }
 
 pedido;
-detalles;
+detalles= new Array();
   ngOnInit() {
    
     this.service.getAllByUser().subscribe(x=>{
-        this.detalles=x.result.detalles;
-        this.pedido=x.result;
+
+        x.result.forEach(element => {
+          element.detalles.forEach(element2 => {
+            this.detalles.push(element2)
+          });
+        });
+
+      console.log(x.result)
+    
   })
 
 }

@@ -14,6 +14,13 @@
                             <ion-label>{{ p.title }}</ion-label>
                         </ion-item>
                     </ion-menu-toggle>
+
+                    <ion-menu-toggle auto-hide="false" *ngIf="rol">
+                        <ion-item routerDirection="root" [routerLink]="'/admin'" lines="none" detail="false" routerLinkActive="selected">
+                            <ion-icon slot="start" [ios]="'people-outline'" [md]="'people-outline'"></ion-icon>
+                            <ion-label>Admin</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
                     <ion-menu-toggle auto-hide="false" (click)="cerrar()">
                         <ion-item routerDirection="root" [routerLink]="'/login'" lines="none" detail="false" routerLinkActive="selected">
                             <ion-icon slot="start" [ios]="'log-out-outline'" [md]="'log-out-outline'"></ion-icon>

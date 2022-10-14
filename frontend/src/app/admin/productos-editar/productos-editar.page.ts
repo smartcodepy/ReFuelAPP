@@ -81,6 +81,7 @@ export class ProductosEditarPage implements OnInit {
     console.log(this.registroUsuarioForm.valid)
     if(this.registroUsuarioForm.valid){
       this.UsuarioService.update({
+        "pro_id":this.id,
         "cat_id":this.binding,
         "pro_precio":Number(this.registroUsuarioForm.value.pro_precio),
         "pro_descripcion":this.registroUsuarioForm.value.pro_descripcion,
